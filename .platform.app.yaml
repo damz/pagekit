@@ -1,0 +1,34 @@
+# The name of this app. Must be unique within a project.
+name: php
+
+# The toolstack used to build the application.
+toolstack: "php:symfony"
+
+# The size of the application.
+size: S
+
+# The access configuration.
+access:
+    ssh: admin
+
+# The relationships of the application with services or other applications.
+relationships:
+    database: "mysql:mysql"
+
+# The configuration of HTTP access to the app.
+web:
+    # The public directory of the app, relative to its root.
+    document_root: "/"
+    # The front-controller script to send non-static requests to.
+    passthru: "/index.php"
+
+# The size of the persistent disk of the application (in MB).
+disk: 2048
+
+# The mounts that will be performed when the package is deployed.
+mounts:
+    "/public/app/cache": "shared:files/cache"
+    "/public/app/logs": "shared:files/logs"
+    "/public/app/sessions": "shared:files/sessions"
+    "/public/app/temp": "shared:files/temp"
+    "/public/storage": "shared:files/storage"

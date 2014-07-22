@@ -1,0 +1,4 @@
+mysql:
+    type: mysql
+    size: S
+    disk: 2048
